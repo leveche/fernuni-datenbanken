@@ -1,0 +1,68 @@
+#+TITLE: Datenbanken - 01671
+* Literatur
+** READ C.J. Date | An Introduction to Database Systems
+** READ J.D. Ullman et al | Database Systems: the Complete Book
+** Zeitschriften und Konferenzen
+- ACM Transactions on Database Systems
+- The VLDB Journal
+- Information Systems
+- ACM Computing Surveys
+- Int. Conf. on Data Engineering
+- SIGMOD
+- EDBT (Conference on Extending Database Technology)
+* Architektur eines Datenbanksystems
+- Drei Datenebenen
+  - logische Gesamtschicht
+  - interne Schicht
+  - externe Schichten: Sicht einzelner Benutzergruppen
+- Datenmodelle
+  - hierarchisches
+  - Netzwerk-Datenmodell
+  - das relationale Datenmodell
+** Das konzeptuelle Modell
+** Externe Modelle
+** Das Datenbankmanagementsystem
+** Weitere Komponenten eines Datenbanksystems
+** Datenunabhängigkeit
+** Ein Datenmodell für die konzeptuelle Ebene
+* ERDs
+** ER-Modell
+- Basiskonstrukte:
+  - Entity Type
+    - Entities sind voneinander unterscheidbare Einheiten
+  - Relationship Type
+  - Entity-Typen und Beziehungstypen haben Attribute
+    - jedes Attribut nimmt Werte aus einem bestimmten Wertebereich
+  - zu jedem Typ gibt es bielibig viele Instanzen: ein Typ wird
+    betrachted als Behälter aller seiner Instanzen; wir schreiben e ∈ E
+    für "Entity e ist vom Typ E"
+  - Beziehung kann als B(E_1, E_2, \ldots, E_k) geschrieben werden,
+    sodass ein k-Tupel (e_1, e_2, \ldots, e_k) ∈ B(E_1, \ldots, E_k)
+    eine bestehende Beziehung vom Typ B(E_1, \ldots, E_k) zwischen den
+    Entities e_i i∈{1,…,k} beschreibt. Einem Beziehungstyp kann auch
+    Attribute zugeordnet sein. Z.B. falls B(Mitarbeiter,Projekt) eine
+    Beziehung "ist-Mitarbeiter-an" ist, so kann ein Attribut
+    "Anteil-der-Arbeitszeit" eingeführt werden:
+    (Meyer, P10, 50%) ∈ B(Mitarbeiter,Projekt,Anteil)
+- Schlüssel: eine Menge von Attributen für den Entity-Typ, deren Werte
+  die Entity indentifizieren
+  - Primärschlüssel
+- Komplexität von Beziehungstypen (Cardinalities)
+  - 1:1-Beziehung
+  - n:1-Beziehung
+  - n:m-Beziehung
+- Schwache Entity-Typen: falls eine Entity durch seine eigenen
+  Attribute allein nicht identifizieren werden kann, sondern daß die
+  eindeitige Identifizierung die Ausnutzung einer Beziehung erfordert
+- Beziehungstypen, an denen ein schwacher Entity-Typ teilnimmt, heißen
+  schwache Beziehungstypen
+- Graphische Darstellung
+- Erweiterungen des ER-Modells
+  - Spezialisierung und Generalisierung (IS-A relationship)
+    z.B Angestellter IS-A Mitarbeiter, Freier Mitarbeiter IS-A Mitarbeiter
+    - Vererbung der Attribute: z.B Freier Mitarbeiter erhält alle
+      Attribute des Mitarbeiter-Typen. Der Typ Freier Mitarbeiter kann
+      durch ein erweiterndes Attribut "fortlaufend beschäftigt"
+      implementiert werden
+  - Partition: Spezialisierung führt zu disjunkten
+    Entity-Typen. Totale vs partielle Partition
